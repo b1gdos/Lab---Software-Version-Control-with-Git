@@ -178,5 +178,134 @@ In case of merge conflicts, follow these steps to resolve them:
 
 Continue with the steps outlined in the lab instructions for handling merge conflicts.
 ```
+To create a GitHub repository and integrate it with Git, follow these steps:
 
-This markdown provides a clear guide for branching, merging, and handling merge conflicts in a GitHub README.md file. You can copy and paste it accordingly.
+### Part 7: Integrating Git with GitHub
+
+So far, all the changes you have made to your file have been stored on your local machine. Git runs locally and does not require any central file server or cloud-based hosting service. Git allows a user to locally store and manage files. Although Git is useful for a single user, integrating the local Git repository with a cloud-based server like GitHub is helpful when working within a team. Each team member keeps a copy of the repository on their local machine and updates the central cloud-based repository to share any changes. There are quite a few popular Git services, including GitHub, Stash from Atlassian, and GitLab. Because it is readily accessible, you will use GitHub in these examples.
+
+#### Step 1: Create a GitHub Account
+
+If you have not done so previously, go to [github.com](https://github.com) and create a GitHub account. If you have a GitHub account, proceed to step 2.
+
+#### Step 2: Log into your GitHub Account and Create a Repository
+
+Log into your GitHub account and create a new repository.
+
+#### Step 3: Create a Repository
+
+1. Select the "New repository" button or click on the "+" icon in the upper right corner and select "New repository".
+2. Create a repository using the following information:
+   - Repository name: `devasc-study-team`
+   - Description: `Working together to pass the DEVASC exam`
+   - Public/Private: Private
+3. Select "Create repository".
+
+#### Step 4: Create a new directory `devasc-study-team`
+
+a. If you are not already in the `git-intro` directory, change to it now.
+
+```bash
+cd ~/labs/devnet-src/git-intro
+```
+
+b. Make a new directory called `devasc-study-team`.
+
+```bash
+mkdir devasc-study-team
+```
+
+#### Step 5: Change directory to `devasc-study-team`
+
+Use the `cd` command to change directories to `devasc-study-team`.
+
+```bash
+cd devasc-study-team
+```
+
+#### Step 6: Copy the `DEVASC` file
+
+a. Use the `cp` command to copy the `DEVASC.txt` from the `git-intro` parent directory to the `devasc-study-team` sub-directory.
+
+```bash
+cp ../DEVASC.txt .
+```
+
+b. Verify the file was copied with the `ls` command and the contents of the file with the `cat` command.
+
+```bash
+ls
+cat DEVASC.txt
+```
+
+#### Step 7: Initialize a new Git repository
+
+Use the `git init` command to initialize the current directory (`devasc-study-team`) as a Git repository.
+
+```bash
+git init
+```
+
+#### Step 8: Point Git repository to GitHub repository
+
+a. Use the `git remote add` command to add a Git URL as a remote alias. The value "origin" points to the newly created repository on GitHub. Replace `<github-username>` with your GitHub username.
+
+```bash
+git remote add origin https://github.com/<github-username>/devasc-study-team.git
+```
+
+b. Verify the remote is running on `github.com`.
+
+```bash
+git remote --verbose
+```
+
+c. View the git log.
+
+```bash
+git log
+```
+
+#### Step 9: Stage and Commit the `DEVASC.txt` file
+
+a. Use the `git add` command to stage the `DEVASC.txt` file.
+
+```bash
+git add DEVASC.txt
+```
+
+b. Use `git commit` command to commit the `DEVASC.txt` file.
+
+```bash
+git commit -m "Add DEVASC.txt file to devasc-study-team"
+```
+
+#### Step 10: Verify the commit
+
+a. Use the `git log` command to verify the commit.
+
+```bash
+git log
+```
+
+b. Use the `git status` command to view status information.
+
+```bash
+git status
+```
+
+#### Step 11: Send (push) the file from Git to GitHub
+
+Use the `git push` command to send (push) the file to your GitHub repository.
+
+```bash
+git push origin master
+```
+
+#### Step 12: Verify file on GitHub
+
+a. Go to your GitHub account and under "Repositories" select `<github-username>/devasc-study-team`.
+
+b. You should see that the `DEVASC.txt` file has been added to this GitHub repository. Click on the file to view the contents.
+
+Follow these steps to integrate your local Git repository with GitHub successfully.
